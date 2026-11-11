@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "person": {
+  "firstName": "Alex",
+  "otherNames": "Morgan Taylor",
+  "title": "Mechanical Engineering Graduate",
+  "phone": "+00 123 456 7890",
+  "email": "alex.morgan@example.com",
+  "address": "Your City, Your Country"
+ },
+ "photo": {
+  "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiM5ZGIzYzYiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTUiIHI9IjY4IiBmaWxsPSIjNWQ3ODkwIi8+PHBhdGggZD0iTTYwIDQwMGMwLTkyIDYyLTE1MCAxNDAtMTUwczE0MCA1OCAxNDAgMTUweiIgZmlsbD0iIzVkNzg5MCIvPjwvc3ZnPg==",
+  "zoom": 1,
+  "cx": 0.5,
+  "cy": 0.5
+ },
+ "headings": {
+  "contact": "Contact",
+  "education": "Education",
+  "skills": "Skills",
+  "languages": "Languages",
+  "profile": "Profile",
+  "work": "Work Experience",
+  "reference": "Reference"
+ },
+ "labels": {
+  "refPhone": "Phone:",
+  "refEmail": "Email :"
+ },
+ "profile": "Motivated mechanical engineering graduate with hands-on experience in testing, maintenance and quality control. Strong analytical and problem-solving skills, a careful approach to safety and detail, and a keen interest in continuous learning.\nReplace this text with a short summary of who you are and what you offer.",
+ "education": [
+  {
+   "id": "e1",
+   "dates": "2024",
+   "institution": "UNIVERSITY OF EXAMPLE",
+   "details": "BSc Mechanical Engineering"
+  },
+  {
+   "id": "e2",
+   "dates": "2020",
+   "institution": "EXAMPLE HIGH SCHOOL",
+   "details": "Senior Secondary Certificate"
+  }
+ ],
+ "work": [
+  {
+   "id": "w1",
+   "organisation": "Example Engineering Ltd",
+   "role": "Maintenance Intern",
+   "dates": "JAN 2024 - NOV 2024",
+   "responsibilities": "Assisted with routine inspection and maintenance of plant equipment.\nRecorded readings and prepared short weekly reports for the supervisor.",
+   "achievements": "Helped cut inspection paperwork time by introducing a simple checklist."
+  },
+  {
+   "id": "w2",
+   "organisation": "Sample School",
+   "role": "Teaching Assistant",
+   "dates": "JAN 2025 - AUG 2025",
+   "responsibilities": "Prepared lesson materials and supported classroom activities.\nMonitored progress and gave feedback to students.",
+   "achievements": ""
+  }
+ ],
+ "skills": [
+  {
+   "id": "s1",
+   "text": "Problem-solving"
+  },
+  {
+   "id": "s2",
+   "text": "Teamwork"
+  },
+  {
+   "id": "s3",
+   "text": "Time management"
+  },
+  {
+   "id": "s4",
+   "text": "Communication"
+  }
+ ],
+ "languages": [
+  {
+   "id": "l1",
+   "text": "English (Fluent)"
+  }
+ ],
+ "references": [
+  {
+   "id": "r1",
+   "name": "Referee Full Name",
+   "organisation": "COMPANY NAME",
+   "phone": "+00 123 456 7890",
+   "email": "referee@example.com"
+  }
+ ],
+ "custom": [],
+ "order": {
+  "side": [
+   "contact",
+   "education",
+   "skills",
+   "languages"
+  ],
+  "main": [
+   "profile",
+   "work",
+   "reference"
+  ]
+ },
+ "hidden": {}
+}

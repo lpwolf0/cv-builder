@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>CV</title>
+<link rel="stylesheet" href="css/fonts.css"><link rel="stylesheet" href="css/cv.css">
+<style>html,body{margin:0;background:#fff}</style></head>
+<body><div id="cv"></div>
+<script type="module">
+import { renderCV } from './js/template/render.js';
+import { sanitizeCV } from './js/model.js';
+window.renderCV = async (data, opts = {}) => {
+  const r = await renderCV(sanitizeCV(data), document.getElementById('cv'), opts);
+  window.__cvReady = true; return r;
+};
+window.__cvLoaded = true;
+</script></body></html>

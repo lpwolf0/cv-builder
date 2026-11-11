@@ -1,0 +1,124 @@
+/* =====================================================================
+   CV TEMPLATE  —  the fixed design (derived from the original Canva CV)
+   Everything here is measured from the original PDF (A4, 595.5 x 842.25pt).
+   This stylesheet is shared by the live preview and the PDF renderer, so
+   what you see is what is exported. It must not depend on editor styles.
+   ===================================================================== */
+.cv-root, .cv-root * { box-sizing: border-box; }
+.cv-root {
+  --navy: #163853;
+  --grey: #545454;
+  --side-w: 203.7pt;
+  --side-x: 32pt;          /* left edge of sidebar content   */
+  --side-text-w: 163pt;    /* sidebar text box (to x=195pt)  */
+  --main-x: 225pt;         /* left edge of main column       */
+  --main-w: 348pt;         /* main column (to x=573pt)       */
+  --dk: 1.095;             /* size factor so the stand-in display font matches the original's cap height */
+  font-family: "CV Body", Lato, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10pt;
+  color: var(--grey);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  text-rendering: geometricPrecision;
+  font-kerning: normal;
+}
+
+/* ---------- page ---------- */
+.cv-page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  background: #fff;
+  break-after: page;
+  page-break-after: always;
+}
+.cv-page:last-child { break-after: auto; page-break-after: auto; }
+.cv-side { position: absolute; left: 0; top: 0; bottom: 0; width: var(--side-w); background: var(--navy); color: #fff; }
+.cv-side-inner { position: absolute; left: var(--side-x); width: var(--side-text-w); }
+.cv-main-inner { position: absolute; left: var(--main-x); width: var(--main-w); }
+.atom { display: flow-root; }
+.atom > * { max-width: 100%; }
+.atom > .name-block { max-width: none; }
+.cv-root p, .cv-root ul, .cv-root li, .cv-root div { overflow-wrap: anywhere; }
+.cv-root ul { list-style: none; margin: 0; padding: 0; }
+.cv-root p { margin: 0; }
+
+/* ---------- photo ---------- */
+.photo { height: 163.4pt; position: relative; }
+.photo-ring {
+  position: absolute; left: 3.8pt; top: 33.4pt; width: 130pt; height: 130pt;
+  border-radius: 50%; background: #fff; padding: 4.5pt;
+}
+.photo-img { position: relative; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: #2b5173; }
+.photo-img img { position: absolute; max-width: none; display: block; }
+.photo-ghost { display:flex; align-items:center; justify-content:center; font: 400 8.5pt "CV Display", sans-serif; color:#fff; opacity:.55; text-align:center; background:#2b5173; }
+
+/* ---------- sidebar headings, rules, lists ---------- */
+.sh {
+  font: 700 calc(14pt * var(--dk))/16pt "CV Display", Poppins, sans-serif;
+  letter-spacing: .075em; text-transform: uppercase; color: #fff;
+  width: 142.5pt; padding-bottom: 4.2pt; border-bottom: 1.5pt solid #fff;
+}
+.ci { display: flex; align-items: flex-start; font-size: 10pt; line-height: 11.2pt; color: #fff; }
+.ci .ico { flex: none; width: 19.4pt; height: 11.2pt; display: flex; align-items: center; }
+.ci .ico svg { width: 10.5pt; height: 12pt; fill: #fff; display: block; }
+.ci .txt { flex: 1; min-width: 0; }
+.edu-year { font: 700 10pt/15pt "CV Body", Lato, sans-serif; color: #fff; letter-spacing: .08em; }
+.edu-inst { font: 700 10pt/15pt "CV Body", Lato, sans-serif; text-transform: uppercase; color: #fff; }
+.edu-inst + .sl { margin-top: -1pt; }
+.sl > li, .sli {
+  position: relative; padding-left: 9.6pt; font-size: 10pt; line-height: 15pt; color: #fff;
+}
+.sl > li::before, .sli::before {
+  content: ""; position: absolute; left: -1.4pt; top: 6pt; width: 3pt; height: 3pt; border-radius: 50%; background: #fff;
+}
+.sk { position: relative; padding-left: 9.6pt; font-size: 10pt; line-height: 15pt; color: #fff; }
+.sk::before { content: ""; position: absolute; left: -1.4pt; top: 6pt; width: 3pt; height: 3pt; border-radius: 50%; background: #fff; }
+
+/* ---------- main column: header ---------- */
+.name-block { width: 369pt; margin-left: -1.1pt; }
+.name { font-family: "CV Display", Poppins, sans-serif; font-size: calc(24.5pt * var(--dk)); line-height: 31.9pt; text-transform: uppercase; color: var(--navy); }
+.name .n1 { font-weight: 700; font-size: calc(23.6pt * var(--dk)); color: var(--grey); letter-spacing: -.015em; }
+.name .n2 { font-weight: 400; letter-spacing: -.036em; }
+.jobtitle { font: 400 calc(12.5pt * var(--dk))/15pt "CV Display", Poppins, sans-serif; letter-spacing: -.0166em; text-transform: uppercase; color: var(--grey); margin-top: 0; }
+.bar { width: 48.75pt; height: 2.75pt; background: var(--navy); margin-top: 2.5pt; }
+
+/* ---------- main column: headings ---------- */
+.mh {
+  font: 700 calc(14pt * var(--dk))/16pt "CV Display", Poppins, sans-serif; letter-spacing: .075em; text-transform: uppercase; color: var(--navy);
+  padding-bottom: 3.6pt; border-bottom: 1.25pt solid var(--navy);
+}
+.profile-p { font-size: 10pt; line-height: 13.55pt; text-align: justify; text-align-last: left; hyphens: none; }
+.profile-p + .profile-p { margin-top: 6pt; }
+
+/* ---------- work experience + timeline ---------- */
+.tl { position: relative; }
+.tl::before { content: ""; position: absolute; left: 1.7pt; top: 0; bottom: 4pt; width: 1pt; background: var(--navy); }
+.tl.first::before { top: 6pt; }
+.job-head { position: relative; padding-left: 19.2pt; font-family: "CV Work", Arimo, Arial, sans-serif; }
+.job-head::before { content: ""; position: absolute; left: -.5pt; top: 3pt; width: 5.7pt; height: 5.7pt; border-radius: 50%; background: var(--navy); }
+.job-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+.job-org { font-weight: 700; font-size: 11pt; line-height: 15pt; }
+.job-dates { font-size: 10pt; line-height: 15pt; letter-spacing: -.02em; text-transform: uppercase; white-space: nowrap; text-align: right; }
+.job-role { font-size: 11pt; line-height: 15pt; }
+.wb { position: relative; padding-left: 33.9pt; font-family: "CV Work", Arimo, Arial, sans-serif; font-size: 10pt; line-height: 13.55pt; text-align: justify; text-align-last: left; hyphens: none; }
+.wb::before { content: ""; position: absolute; left: 22.9pt; top: 5.2pt; width: 3pt; height: 3pt; border-radius: 50%; background: var(--grey); }
+.plain-wb { padding-left: 10.2pt; }
+.plain-wb::before { left: 0; }
+
+/* ---------- reference ---------- */
+.ref-name { font: 700 11pt/15pt "CV Body", Lato, sans-serif; }
+.ref-org { font-size: 10pt; line-height: 13pt; text-transform: uppercase; }
+.ref-line { display: flex; font-size: 8pt; line-height: 13pt; }
+.ref-line .lbl { flex: none; width: 27.7pt; font-weight: 700; font-size: 7pt; letter-spacing: 0; }
+.ref-line .val { flex: 1; min-width: 0; }
+
+/* ---------- preview-only ghost text (never rendered into the PDF) ---------- */
+.ghost { opacity: .38; }
+
+/* ---------- print ---------- */
+@page { size: A4; margin: 0; }
+@media print {
+  html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; }
+}

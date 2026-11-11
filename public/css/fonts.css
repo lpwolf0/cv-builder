@@ -1,0 +1,10 @@
+/* Font files bundled with the app so the live preview and the PDF use identical typefaces.
+   Lato is the template's own body font. "Now" (headings) and "Aileron" (work experience) are not
+   installed here, so close open-licence stand-ins are mapped below. See fonts/README.md to swap in the real files. */
+@font-face{font-family:"CV Body";font-weight:400;src:url(../fonts/Lato-Regular.ttf) format("truetype");font-display:block}
+@font-face{font-family:"CV Body";font-weight:700;src:url(../fonts/Lato-Bold.woff2) format("woff2");font-display:block}
+@font-face{font-family:"CV Display";font-weight:300;src:url(../fonts/Poppins-Light.ttf) format("truetype");font-display:block}
+@font-face{font-family:"CV Display";font-weight:400;src:url(../fonts/Poppins-Regular.ttf) format("truetype");font-display:block}
+@font-face{font-family:"CV Display";font-weight:700;src:url(../fonts/Poppins-Bold.ttf) format("truetype");font-display:block}
+@font-face{font-family:"CV Work";font-weight:400;src:url(../fonts/LiberationSans-Regular.ttf) format("truetype");font-display:block}
+@font-face{font-family:"CV Work";font-weight:700;src:url(../fonts/LiberationSans-Bold.ttf) format("truetype");font-display:block}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV Builder</title>
+<meta name="description" content="Build your CV in a clean, professional design. Edit on the left, watch the CV update live on the right, then download a print-ready PDF.">
+<meta name="theme-color" content="#163853">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23163853'/%3E%3Crect x='7' y='8' width='7' height='16' fill='%23fff' opacity='.9'/%3E%3Crect x='17' y='8' width='8' height='2.4' fill='%23fff'/%3E%3Crect x='17' y='13' width='8' height='1.6' fill='%23fff' opacity='.7'/%3E%3Crect x='17' y='17' width='8' height='1.6' fill='%23fff' opacity='.7'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/cv.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="ui-skip" href="#editor-root">Skip to the editor</a>
+
+<!-- ============ LANDING ============ -->
+<div id="landing">
+  <header class="ui-land-top">
+    <span class="ui-logo"><span class="ui-logo-mark" aria-hidden="true"></span>CV Builder</span>
+  </header>
+  <main>
+    <section class="ui-hero">
+      <div class="ui-hero-copy">
+        <p class="ui-eyebrow">Free · No account needed</p>
+        <h1>Your CV, in a design that already looks right.</h1>
+        <p class="ui-lead">Type in your details, add your photo, and watch a polished navy-sidebar CV build itself as you go. When you are happy, download a crisp, print-ready PDF with real, selectable text.</p>
+        <div class="ui-hero-cta">
+          <button class="ui-btn primary big" data-start data-continue="Continue my CV">Start building my CV</button>
+          <span class="ui-hint">Takes about 10 minutes</span>
+        </div>
+        <ul class="ui-points">
+          <li><strong>Live preview.</strong> Every keystroke updates the real CV, page breaks included.</li>
+          <li><strong>Private by default.</strong> Your details and photo are saved only in this browser. Nothing is stored on a server.</li>
+          <li><strong>Grows with you.</strong> Add as many jobs, qualifications and extra sections as you need; extra pages continue the design.</li>
+        </ul>
+      </div>
+      <div class="ui-hero-art" aria-hidden="true">
+        <div class="ui-hero-page" id="hero-page"><div class="ui-hero-scale"><div id="hero-cv" class="ui-mount"></div></div></div>
+      </div>
+    </section>
+    <section class="ui-steps" aria-label="How it works">
+      <ol>
+        <li><span>1</span><div><h2>Fill in the sections</h2><p>Personal details, photo, summary, education, work, skills and more.</p></div></li>
+        <li><span>2</span><div><h2>Check the live preview</h2><p>See exactly what will be printed. Reorder entries and sections any time.</p></div></li>
+        <li><span>3</span><div><h2>Download your PDF</h2><p>One click. Ready to email, upload or print on A4.</p></div></li>
+      </ol>
+    </section>
+  </main>
+  <footer class="ui-foot">Your progress is saved on this device. When you download, your CV is sent to the PDF service only to be rendered, then discarded.</footer>
+</div>
+
+<!-- ============ APP ============ -->
+<div id="app" hidden data-tab="edit">
+  <header class="ui-top">
+    <div class="ui-top-l">
+      <a class="ui-logo" href="#" aria-label="CV Builder home"><span class="ui-logo-mark" aria-hidden="true"></span><span class="ui-logo-t">CV Builder</span></a>
+    </div>
+    <div class="ui-top-m">
+      <div class="ui-progress-wrap">
+        <div id="progress" class="ui-progress" role="progressbar" aria-label="CV completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+        <span id="progress-label" class="ui-progress-label">0 of 10 parts filled</span>
+      </div>
+    </div>
+    <div class="ui-top-r">
+      <span id="save-status" class="ui-save" role="status" aria-live="polite"></span>
+      <button class="ui-btn" id="btn-save" type="button">Save</button>
+      <details class="ui-menu" id="menu">
+        <summary class="ui-btn" aria-label="More actions">More</summary>
+        <div class="ui-menu-list">
+          <button type="button" id="m-example">Fill with example content</button>
+          <button type="button" id="m-backup">Download backup (.json)</button>
+          <button type="button" id="m-restore">Load backup…</button>
+          <hr>
+          <button type="button" id="m-reset" class="danger">Reset CV…</button>
+        </div>
+      </details>
+      <input id="m-file" class="ui-sr" type="file" accept="application/json,.json" tabindex="-1" aria-hidden="true">
+      <button class="ui-btn primary" type="button" data-pdf>Download CV as PDF</button>
+    </div>
+  </header>
+
+  <nav class="ui-tabs" role="tablist" aria-label="Editor or preview">
+    <button class="ui-tab" role="tab" data-tab="edit" aria-selected="true">Edit</button>
+    <button class="ui-tab" role="tab" data-tab="preview" aria-selected="false">Preview</button>
+  </nav>
+
+  <div class="ui-split">
+    <section class="ui-pane ui-editor-pane" aria-label="CV editor">
+      <div id="empty-banner" class="ui-banner" hidden>
+        <p><strong>Start with your name</strong> and work down the sections. Not sure how it will look?</p>
+        <button class="ui-btn" id="btn-example" type="button">Fill with example content</button>
+      </div>
+      <div id="editor-root"></div>
+      <p class="ui-editor-end">Everything is saved automatically on this device.</p>
+    </section>
+
+    <section class="ui-pane ui-preview-pane" aria-label="CV preview">
+      <div class="ui-ptools">
+        <span id="page-count" class="ui-badge">1 page</span>
+        <span class="ui-hint ui-ptools-hint">Faded text is a placeholder. It will not appear in the PDF.</span>
+        <div class="ui-row">
+          <button class="ui-btn sm" id="z-out" type="button" aria-label="Zoom out">−</button>
+          <button class="ui-btn sm" id="z-fit" type="button">Fit</button>
+          <button class="ui-btn sm" id="z-in" type="button" aria-label="Zoom in">+</button>
+        </div>
+      </div>
+      <div class="ui-scroller" id="preview-scroller" tabindex="0" aria-label="CV preview, scrollable">
+        <div class="ui-frame"><div class="ui-mount" id="cv"></div></div>
+      </div>
+      <div class="ui-mobile-dl"><button class="ui-btn primary big" type="button" data-pdf>Download CV as PDF</button></div>
+    </section>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

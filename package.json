@@ -1,0 +1,10 @@
+{
+  "name": "cv-builder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Interactive CV builder that renders a fixed graphic CV design and exports it to PDF with Chromium.",
+  "scripts": { "start": "node server.js", "qa": "node test/qa.mjs" },
+  "engines": { "node": ">=20" },
+  "dependencies": { "playwright": "^1.50.0" }
+}
